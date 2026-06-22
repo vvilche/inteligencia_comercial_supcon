@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SUPCON Commercial Intelligence Dashboard - Chile Electromobility, Grid Modernization, and SCADA Database">
+    <title>SUPCON Chile - Inteligencia Comercial de Redes Eléctricas</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-theme">
+    <div class="bg-glow"></div>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <div class="logo-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+                <div class="logo-text">SUPCON<span>Chile</span></div>
+            </div>
+            <nav class="sidebar-nav">
+                <button class="nav-btn active" data-tab="overview">
+                    <i class="fa-solid fa-chart-line"></i> Resumen General
+                </button>
+                <button class="nav-btn" data-tab="rankings">
+                    <i class="fa-solid fa-ranking-star"></i> Puntuación de Clientes
+                </button>
+                <button class="nav-btn" data-tab="substations">
+                    <i class="fa-solid fa-tower-cell"></i> Explorador Subestaciones
+                </button>
+                <button class="nav-btn" data-tab="plants">
+                    <i class="fa-solid fa-solar-panel"></i> Explorador Centrales
+                </button>
+                <button class="nav-btn" data-tab="industries">
+                    <i class="fa-solid fa-industry"></i> Plantas Industriales
+                </button>
+                <button class="nav-btn" data-tab="sitr">
+                    <i class="fa-solid fa-list-check"></i> Catastro SITR (87)
+                </button>
+                <button class="nav-btn" data-tab="solar-pmgd">
+                    <i class="fa-solid fa-solar-panel"></i> Catastro Solar (738)
+                </button>
+                <button class="nav-btn" data-tab="insights">
+                    <i class="fa-solid fa-lightbulb"></i> Focos Estratégicos
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <p>Comercial Intelligence v1.2</p>
+                <p class="api-status"><i class="fa-solid fa-circle-check"></i> Conectado a InfoTécnica</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-title">
+                    <h1 id="page-title">Panel de Inteligencia Comercial</h1>
+                    <p class="subtitle">Análisis del Mercado Eléctrico Chileno para Soluciones de Control de Procesos y SAS</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="global-search" placeholder="Buscar empresa, subestación o central...">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Tab: Overview -->
+            <section class="tab-section active" id="tab-overview">
+                <!-- Metrics Grid -->
+                <div class="metrics-grid">
+                    <div class="metric-card glass">
+                        <div class="metric-icon blue"><i class="fa-solid fa-tower-broadcast"></i></div>
+                        <div class="metric-info">
+                            <h3 class="metric-label">Subestaciones Totales</h3>
+                            <p class="metric-value" id="count-subs">1,256</p>
+                            <span class="metric-change text-blue"><i class="fa-solid fa-globe"></i> Cobertura SEN 100%</span>
+                        </div>
+                    </div>
+                    <div class="metric-card glass">
+                        <div class="metric-icon green"><i class="fa-solid fa-solar-panel"></i></div>
+                        <div class="metric-info">
+                            <h3 class="metric-label">Centrales Generadoras</h3>
+                            <p class="metric-value" id="count-plants">1,200</p>
+                            <span class="metric-change text-green"><i class="fa-solid fa-arrow-trend-up"></i> 61.5% Solar/Eólica</span>
+                        </div>
+                    </div>
+                    <div class="metric-card glass">
+                        <div class="metric-icon purple"><i class="fa-solid fa-building-shield"></i></div>
+                        <div class="metric-info">
+                            <h3 class="metric-label">Clientes Target Críticos</h3>
+                            <p class="metric-value" id="count-targets">15</p>
+                            <span class="metric-change text-purple"><i class="fa-solid fa-circle-exclamation"></i> Prioridad Score > 30</span>
+                        </div>
+                    </div>
+                    <div class="metric-card glass">
+                        <div class="metric-icon purple"><i class="fa-solid fa-industry"></i></div>
+                        <div class="metric-info">
+                            <h3 class="metric-label">Plantas Industriales</h3>
+                            <p class="metric-value" id="count-industrials">27</p>
+                            <span class="metric-change text-purple"><i class="fa-solid fa-industry"></i> 5 Sectores Clave</span>
+                        </div>
+                    </div>
+                    <div class="metric-card glass">
+                        <div class="metric-icon orange"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                        <div class="metric-info">
+                            <h3 class="metric-label">S/E sin SCADA & Com</h3>
+                            <p class="metric-value" id="count-greenfields">676</p>
+                            <span class="metric-change text-orange"><i class="fa-solid fa-percent"></i> 53.8% Oportunidad Greenfield</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Layout -->
+                <div class="charts-layout">
+                    <div class="chart-card glass">
+                        <div class="chart-header">
+                            <h2>Top 10 Conglomerados Target (Priority Score)</h2>
+                            <p class="chart-subtitle">Puntuación ponderada por volumen de activos DCS, SIS, PPC y SAS</p>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="chart-priority-scores"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card glass">
+                        <div class="chart-header">
+                            <h2>Matriz de Generación de Energía</h2>
+                            <p class="chart-subtitle">Distribución por tipo de combustible / tecnología de centrales</p>
+                        </div>
+                        <div class="chart-container pie-container">
+                            <canvas id="chart-plant-types"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Section -->
+                <div class="dashboard-footer-info glass">
+                    <div class="info-icon"><i class="fa-solid fa-circle-info text-blue"></i></div>
+                    <div class="info-body">
+                        <h3>Fórmula de Puntuación Comercial de SUPCON (Priority Score)</h3>
+                        <p>Calculado automáticamente evaluando: Central Térmica (Peso 5: DCS/SIS), Central Hidroeléctrica (Peso 3: DCS Hidro), Central ERNC (Peso 2: PPC/BESS EMS), Subestación Sin SCADA (Peso 1: SAS/RTU) y Segmento Industrial / Minero (Bono +10: integración de sistemas de potencia y procesos).</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab: Rankings -->
+            <section class="tab-section" id="tab-rankings">
+                <div class="card glass">
+                    <div class="card-header-flex">
+                        <div>
+                            <h2>Priorización Comercial de Clientes</h2>
+                            <p class="subtitle">Empresas ordenadas por su potencial comercial total para el portafolio de SUPCON</p>
+                        </div>
+                        <div class="table-actions">
+                            <input type="text" id="rankings-search" class="table-search" placeholder="Filtrar por empresa...">
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-rankings">
+                            <thead>
+                                <tr>
+                                    <th style="width: 80px;">Rango</th>
+                                    <th>Empresa / Grupo</th>
+                                    <th style="text-align: center;">DCS Térmico</th>
+                                    <th style="text-align: center;">DCS Hidro</th>
+                                    <th style="text-align: center;">PPC/EMS ERNC</th>
+                                    <th style="text-align: center;">SAS (S/E sin SCADA)</th>
+                                    <th style="text-align: center;">Ind / Minero</th>
+                                    <th style="text-align: center; font-weight: bold;">Priority Score</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-rankings">
+                                <!-- Loaded via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab: Substations -->
+            <section class="tab-section" id="tab-substations">
+                <div class="card glass">
+                    <div class="card-header-flex">
+                        <div>
+                            <h2>Catastro Completo de Subestaciones Eléctricas de Chile</h2>
+                            <p class="subtitle">Explora las 1.256 subestaciones, filtra por propietario o estado de SCADA y Telecomunicaciones</p>
+                        </div>
+                        <div class="table-filters-grid">
+                            <input type="text" id="sub-search" class="table-search" placeholder="Buscar por nombre o nemotécnico...">
+                            <select id="sub-filter-scada" class="table-select">
+                                <option value="all">Ver todo (SCADA)</option>
+                                <option value="si">Con SCADA</option>
+                                <option value="no">Sin SCADA</option>
+                            </select>
+                            <select id="sub-filter-com" class="table-select">
+                                <option value="all">Ver todo (Telecom)</option>
+                                <option value="si">Con Comunicaciones</option>
+                                <option value="no">Sin Comunicaciones</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-substations">
+                            <thead>
+                                <tr>
+                                    <th style="width: 80px;">ID</th>
+                                    <th>Nombre Subestación</th>
+                                    <th>Código</th>
+                                    <th>Nemotécnico</th>
+                                    <th>Propietario / Dueño</th>
+                                    <th style="text-align: center;">SCADA</th>
+                                    <th style="text-align: center;">Comunicaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-substations">
+                                <!-- Loaded via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-pagination" id="pagination-substations">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab: Plants -->
+            <section class="tab-section" id="tab-plants">
+                <div class="card glass">
+                    <div class="card-header-flex">
+                        <div>
+                            <h2>Catastro Completo de Centrales Generadoras de Chile</h2>
+                            <p class="subtitle">Explora las 1.200 centrales térmicas, hidroeléctricas, solares y eólicas</p>
+                        </div>
+                        <div class="table-filters-grid">
+                            <input type="text" id="plant-search" class="table-search" placeholder="Buscar por nombre o propietario...">
+                            <select id="plant-filter-type" class="table-select">
+                                <option value="all">Ver todas las tecnologías</option>
+                                <option value="Solares">Solares</option>
+                                <option value="Eólicas">Eólicas</option>
+                                <option value="Termoeléctricas">Termoeléctricas</option>
+                                <option value="Hidroeléctricas">Hidroeléctricas</option>
+                            </select>
+                            <select id="plant-filter-region" class="table-select">
+                                <option value="all">Ver todas las regiones</option>
+                                <!-- Loaded via JS -->
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-plants">
+                            <thead>
+                                <tr>
+                                    <th style="width: 80px;">ID</th>
+                                    <th>Nombre Central</th>
+                                    <th>Tecnología</th>
+                                    <th>Propietario / Operador</th>
+                                    <th>Nemotécnico</th>
+                                    <th>Región</th>
+                                    <th>Comuna</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-plants">
+                                <!-- Loaded via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-pagination" id="pagination-plants">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab: Industries -->
+            <section class="tab-section" id="tab-industries">
+                <div class="card glass">
+                    <div class="card-header-flex">
+                        <div>
+                            <h2>Catastro de Plantas Industriales en Chile</h2>
+                            <p class="subtitle">Explora las plantas manufactureras clave y su idoneidad para soluciones DCS/SIS de SUPCON</p>
+                        </div>
+                        <div class="table-filters-grid">
+                            <input type="text" id="ind-search" class="table-search" placeholder="Buscar por nombre, empresa o comuna...">
+                            <select id="ind-filter-sector" class="table-select">
+                                <option value="all">Ver todos los sectores</option>
+                                <option value="Alimentos y Bebidas">Alimentos y Bebidas</option>
+                                <option value="Química y Petroquímica">Química y Petroquímica</option>
+                                <option value="Cemento y Cal">Cemento y Cal</option>
+                                <option value="Siderúrgica y Metalurgia">Siderúrgica y Metalurgia</option>
+                                <option value="Forestal y Madera">Forestal y Madera</option>
+                                <option value="Minería y Procesamiento Mineral">Minería y Procesamiento Mineral</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-industries">
+                            <thead>
+                                <tr>
+                                    <th style="width: 60px;">ID</th>
+                                    <th>Nombre Planta</th>
+                                    <th>Empresa Propietaria</th>
+                                    <th>Sector Industrial</th>
+                                    <th>Región</th>
+                                    <th>Comuna</th>
+                                    <th>Oportunidad SUPCON</th>
+                                    <th>Conexión Eléctrica</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-industries">
+                                <!-- Loaded via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-pagination" id="pagination-industries">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab: SITR (87) -->
+            <section class="tab-section" id="tab-sitr">
+                <div class="card glass">
+                    <div class="card-header-flex">
+                        <div>
+                            <h2>Catastro SITR (87)</h2>
+                            <p class="subtitle">Explora los 87 parques PMGD incluidos en el Oficio SITR de congestión y sus leads comerciales</p>
+                        </div>
+                        <div class="table-filters-grid">
+                            <input type="text" id="sitr-search" class="table-search" placeholder="Buscar parque, propietario o subestación...">
+                            <select id="sitr-filter-holding" class="table-select">
+                                <option value="all">Todos los holdings</option>
+                                <!-- Loaded via JS -->
+                            </select>
+                            <select id="sitr-filter-solution" class="table-select">
+                                <option value="all">Todas las soluciones</option>
+                                <option value="SUPCON">SUPCON</option>
+                                <option value="NovaTech Orion">NovaTech Orion</option>
+                                <option value="Software-Only">Software-Only</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-sitr">
+                            <thead>
+                                <tr>
+                                    <th>Parque</th>
+                                    <th style="text-align: center; width: 80px;">MW</th>
+                                    <th>Subestación</th>
+                                    <th>Propietario</th>
+                                    <th>Holding</th>
+                                    <th>Solución</th>
+                                    <th>Región / Comuna</th>
+                                    <th>Contacto Corporativo</th>
+                                    <th>Contacto Planta</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-sitr">
+                                <!-- Loaded via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-pagination" id="pagination-sitr">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab: Solar PMGD (738) -->
+            <section class="tab-section" id="tab-solar-pmgd">
+                <div class="card glass">
+                    <div class="card-header-flex">
+                        <div>
+                            <h2>Catastro Solar (738)</h2>
+                            <p class="subtitle">Explora los 738 proyectos solares PMGD en Chile y sus leads comerciales</p>
+                        </div>
+                        <div class="table-filters-grid">
+                            <input type="text" id="solar-search" class="table-search" placeholder="Buscar parque, propietario o subestación...">
+                            <select id="solar-filter-holding" class="table-select">
+                                <option value="all">Todos los holdings</option>
+                                <!-- Loaded via JS -->
+                            </select>
+                            <select id="solar-filter-solution" class="table-select">
+                                <option value="all">Todas las soluciones</option>
+                                <option value="SUPCON">SUPCON</option>
+                                <option value="NovaTech Orion">NovaTech Orion</option>
+                                <option value="Software-Only">Software-Only</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-wrapper">
+                        <table id="table-solar-pmgd">
+                            <thead>
+                                <tr>
+                                    <th>Parque</th>
+                                    <th style="text-align: center; width: 80px;">MW</th>
+                                    <th>Subestación</th>
+                                    <th>Propietario</th>
+                                    <th>Holding</th>
+                                    <th>Solución</th>
+                                    <th>Región / Comuna</th>
+                                    <th>Contacto Corporativo</th>
+                                    <th>Contacto Planta</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-solar-pmgd">
+                                <!-- Loaded via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-pagination" id="pagination-solar-pmgd">
+                        <!-- Loaded via JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tab: Insights -->
+            <section class="tab-section" id="tab-insights">
+                <div class="insights-grid">
+                    <!-- Column 1: Top Physical Targets -->
+                    <div class="card glass">
+                        <div class="card-header">
+                            <h2><i class="fa-solid fa-bullseye text-orange"></i> Top 10 Subestaciones Físicas Target</h2>
+                            <p class="subtitle">Instalaciones de transmisión críticas que carecen de telecontrol registrado</p>
+                        </div>
+                        <div class="target-list" id="target-substations-list">
+                            <!-- Loaded via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Regional Clusters -->
+                    <div class="card glass">
+                        <div class="card-header">
+                            <h2><i class="fa-solid fa-map-location-dot text-blue"></i> Clústeres Comerciales Geográficos</h2>
+                            <p class="subtitle">Zonas de concentración de oportunidades de modernización</p>
+                        </div>
+                        <div class="clusters-list">
+                            <div class="cluster-item">
+                                <div class="cluster-badge north">Norte</div>
+                                <div class="cluster-body">
+                                    <h3>Norte Grande (Antofagasta / Atacama)</h3>
+                                    <p class="cluster-desc"><strong>Líneas de Interés:</strong> BESS EMS, PPC y DCS Minero.</p>
+                                    <p class="cluster-text">Concentra la generación fotovoltaica con problemas de vertimiento (*curtailment*) y los sistemas privados de distribución de la gran minería (BHP Escondida, SQM, Collahuasi).</p>
+                                </div>
+                            </div>
+                            <div class="cluster-item">
+                                <div class="cluster-badge center">Centro</div>
+                                <div class="cluster-body">
+                                    <h3>Valparaíso y Metropolitana</h3>
+                                    <p class="cluster-desc"><strong>Líneas de Interés:</strong> DCS Ciclo Combinado y SAS Troncal.</p>
+                                    <p class="cluster-text">Zonas urbanas e industriales con gran consumo de potencia. Foco en actualización de turbinas de gas (Combined Cycle) y digitalización de grandes nodos de transmisión troncal de Transelec.</p>
+                                </div>
+                            </div>
+                            <div class="cluster-item">
+                                <div class="cluster-badge south">Sur</div>
+                                <div class="cluster-body">
+                                    <h3>Biobío, Maule y Los Lagos</h3>
+                                    <p class="cluster-desc"><strong>Líneas de Interés:</strong> DCS Hidráulico y DCS Celulosa.</p>
+                                    <p class="cluster-text">Centro neurálgico de la energía hidráulica y la industria de la madera y celulosa (Arauco, CMPC). Oportunidad de migrar reguladores analógicos/legacy a sistemas de control de procesos unificados.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commercial Entry Strategies Card -->
+                <div class="card glass mt-6">
+                    <div class="card-header">
+                        <h2><i class="fa-solid fa-chess-knight text-purple"></i> Estrategias de Entrada Comercial (Go-To-Market SUPCON)</h2>
+                        <p class="subtitle">Propuestas de valor diferenciadas para el mercado energético chileno</p>
+                    </div>
+                    <div class="strategies-grid">
+                        <div class="strategy-card">
+                            <div class="strategy-number">01</div>
+                            <h3>Homologación de PPC PMGD</h3>
+                            <p>Crear un paquete estandarizado de **Power Plant Controller (PPC)** de bajo costo y rápido despliegue para desarrolladores de proyectos solares medianos y pequeños (PMGD de 3 a 9 MW). Asegura el cumplimiento rápido de las exigencias técnicas del Coordinador sin sobrediseñar el presupuesto.</p>
+                        </div>
+                        <div class="strategy-card">
+                            <div class="strategy-number">02</div>
+                            <h3>Integración DCS + SAS Minero</h3>
+                            <p>Aprovechar la fortaleza de SUPCON en DCS químico/industrial y proponer a **BHP Escondida** y **Codelco** una solución unificada. Al integrar las subestaciones de patio con el DCS de procesos de la concentradora, se reduce drásticamente el OPEX de repuestos y capacitación de operadores.</p>
+                        </div>
+                        <div class="strategy-card">
+                            <div class="strategy-number">03</div>
+                            <h3>Retrofit DCS/SIS de Carboneras</h3>
+                            <p>Ofrecer kits de modernización para el apagado de plantas de carbón de **AES Chile** y **Engie**. Las plantas que se retiran del carbón requieren reconvertirse a condensadores síncronos o almacenamiento BESS, requiriendo reconfigurar los sistemas de control de turbina y protecciones críticas (SIS).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>

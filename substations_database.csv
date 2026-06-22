@@ -1,0 +1,52 @@
+Nombre subestación,Empresa dueña,Tensión (kV),Año de puesta en servicio (o estimado),SCADA actual,Contacto de mantenimiento/operaciones,Estado ERNC,Prioridad,Fuente del dato
+Diego de Almagro,Transelec,220,1990 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Operaciones Transelec Diego de Almagro'),Sí,Alta,Licitación pública Coordinador Eléctrico Nacional / Memorias Transelec
+Alto Jahuel,Transelec,500,1968,PcVue / ABB MicroSCADA (Legacy nodes remain),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Subestación Alto Jahuel Transelec'),Parcial,Media,Reportajes Revista ElectroIndustria / Casos Scadatech
+Charrúa,Transelec,500,1970 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Mantenimiento Zona Sur Transelec'),Parcial,Alta,CNE / Coordinador Eléctrico Nacional InfoTécnica
+Encuentro,Transelec,220,1995 (Estimado),ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Operaciones Zona Norte Transelec'),Sí,Alta,Hitachi Energy Case Study / CNE InfoTécnica
+Cardones,Transelec,220,1992,GE / ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Protecciones Transelec Copiapó'),Sí,Alta,Coordinador Eléctrico Nacional
+Polpaico,Transelec,500,1980 (Estimado),Siemens Spectrum / ABB,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Centro Transelec'),Parcial,Alta,CNE Planes de Expansión
+Pan de Azúcar,Transelec,220,1985 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Supervisor Control Pan de Azúcar Transelec'),Sí,Alta,CNE InfoTécnica / Generadoras de Chile
+Maitencillo,Transelec,220,1991 (Estimado),GE / ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Coquimbo-Atacama Transelec'),Sí,Alta,Coordinador Eléctrico Nacional
+Cerro Navia,Transelec,220,1973,Siemens Spectrum Power (Legacy components),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Subestación Cerro Navia Transelec'),No,Media,CNE InfoTécnica / Memorias Transelec
+Lo Aguirre,Transelec,500,2017,Siemens Spectrum Power (Modern),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Ingeniero Control Lo Aguirre Transelec'),Parcial,Baja,Licitación EFE / Coordinador Eléctrico Nacional
+Crucero,Transelec,220,1994 (Estimado),ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Operaciones Zona Norte Transelec'),Sí,Alta,Coordinador Eléctrico Nacional
+Lagunas,Transelec,220,2005 (Estimado),GE / ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Ingeniero Control Lagunas Transelec'),Sí,Alta,CNE InfoTécnica
+Pozo Almonte,Transelec,220,2012,ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Turno Pozo Almonte Transelec'),Sí,Media,Noticias de Energía / CNE
+Carrera Pinto,Transelec,220,2015,GE / ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Operaciones Carrera Pinto Transelec'),Sí,Media,CNE InfoTécnica
+Domeyko,Engie Energía Chile,220,2013,Siemens Spectrum Power,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Operaciones Engie Domeyko'),Sí,Media,Memorias Engie
+Laberinto,Engie Energía Chile,220,2016,Siemens Spectrum Power,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Supervisor Control Engie Laberinto'),Sí,Media,Memorias Engie
+Quillota,Transelec,220,1980 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Subestación Quillota Transelec'),Parcial,Alta,CNE InfoTécnica
+Nogales,Transelec,220,1993 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Quillota Transelec'),Parcial,Alta,Coordinador Eléctrico Nacional
+Rapel,Transelec,220,1968,ABB MicroSCADA (Legacy components),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Subestación Rapel Transelec'),Parcial,Alta,Memorias Transelec / CNE
+Ancoa,Transelec,500,2012,Siemens Spectrum Power / ABB,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Operaciones Ancoa Transelec'),Parcial,Media,CNE InfoTécnica
+Itahue,Transelec,220,1975 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Maule Transelec'),Parcial,Alta,Coordinador Eléctrico Nacional
+Temuco,Transelec,220,1985 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Araucanía Transelec'),Parcial,Alta,CNE InfoTécnica
+Cautín,Transelec,220,2000 (Estimado),ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Supervisor Control Cautín Transelec'),Sí,Media,Coordinador Eléctrico Nacional
+Puerto Montt,Transelec,220,1995 (Estimado),ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Los Lagos Transelec'),Parcial,Media,Coordinador Eléctrico Nacional
+El Rodeo,CGE Transmisión,110,1988 (Estimado),Schneider Saitel / MiCOM (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Transmisión CGE Maule'),No,Alta,Licitaciones CGE Transmisión
+Paine,CGE Transmisión,110,1985 (Estimado),Schneider Saitel (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Transmisión CGE Metropolitana'),No,Alta,Licitaciones CGE Transmisión
+Buin,CGE Transmisión,110,1980 (Estimado),Schneider Saitel / ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal CGE Buin'),Parcial,Alta,CNE InfoTécnica
+Florida,Enel Distribución,110,1970 (Estimado),GE / ABB (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Subgerente Operaciones Enel Distribución'),No,Media,Memorias Enel Chile
+San Miguel,Enel Distribución,110,1975 (Estimado),GE (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Enel Distribución'),No,Media,Memorias Enel Chile
+Colbún,Colbún S.A.,220,1985,ABB MicroSCADA / Siemens Spectrum (Legacy nodes),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Central Colbún'),Parcial,Media,Memorias Colbún / CNE
+Angostura,Colbún S.A.,220,2014,Siemens Spectrum Power,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Ingeniero Control Central Angostura Colbún'),No,Baja,Memorias Colbún
+Nehuenco,Colbún S.A.,220,1998,ABB MicroSCADA / Siemens,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Central Nehuenco Colbún'),No,Media,Memorias Colbún
+Santa María,Colbún S.A.,220,2012,Siemens Spectrum Power,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Planta Santa María Colbún'),No,Baja,Memorias Colbún
+Cochrane,AES Chile,220,2016,Siemens Spectrum Power,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Operaciones Central Cochrane AES'),Parcial,Baja,Memorias AES Chile
+Ventanas,AES Chile,220,1964,ABB / Siemens Spectrum (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Complejo Ventanas AES'),No,Alta,Planes de Descarbonización AES / CNE
+Guacolda,Prime Energía,220,1995,ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Subestación Guacolda'),Parcial,Alta,CNE InfoTécnica
+San Clemente,Colbún S.A.,220,1997,ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Supervisor Operaciones Colbún Maule'),Parcial,Media,Memorias Colbún
+Tapihue,Transelec,220,1983 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Valparaíso Transelec'),No,Alta,Coordinador Eléctrico Nacional
+Parinacota,Engie Energía Chile,220,1998,Siemens Spectrum Power (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Transmisión Engie Arica'),Sí,Alta,Memorias Engie
+Arica,Engie Energía Chile,110,1980 (Estimado),Siemens Spectrum (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Arica Engie'),Parcial,Alta,Coordinador Eléctrico Nacional
+Mejillones,Engie Energía Chile,220,1995,Siemens / ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Complejo Mejillones Engie'),Parcial,Alta,CNE / Engie Memorias
+Tocopilla,Engie Energía Chile,110,1960,Siemens Spectrum (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Central Tocopilla Engie'),Parcial,Alta,Planes de descarbonización Engie
+Uribe,Engie Energía Chile,220,2016,Siemens Spectrum Power,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Ingeniero Operaciones Engie Antofagasta'),Sí,Media,Memorias Engie
+Tarapacá,Engie Energía Chile,220,1999,Siemens Spectrum Power,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Turno Engie Tarapacá'),Sí,Media,Memorias Engie
+El Salado,Transelec,220,1995 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Chañaral Transelec'),Sí,Alta,Coordinador Eléctrico Nacional
+María Elena,Transelec,220,1990 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Supervisor Control María Elena Transelec'),Sí,Alta,Coordinador Eléctrico Nacional
+Mulchén,Transelec,220,1982 (Estimado),ABB MicroSCADA (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Biobío Transelec'),Parcial,Alta,Coordinador Eléctrico Nacional
+Barro Blanco,Grupo Saesa,110,2015,Schneider Saitel / MiCOM,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Transmisión Saesa Osorno'),Parcial,Media,Memorias Saesa / CNE
+Melipulli,Grupo Saesa,110,1990 (Estimado),Schneider Saitel (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe de Transmisión Saesa Puerto Montt'),Parcial,Alta,Memorias Saesa / CNE
+Rahue,Grupo Saesa,110,1988 (Estimado),Schneider Saitel (Legacy),SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Supervisor Subestaciones Saesa Valdivia'),Parcial,Alta,Memorias Saesa / CNE
+Ciruelos,Transelec,220,1993 (Estimado),ABB MicroSCADA,SIN DATO PÚBLICO (Sugerido: Buscar en LinkedIn 'Jefe Zonal Valdivia Transelec'),Parcial,Alta,Coordinador Eléctrico Nacional
