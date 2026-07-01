@@ -181,6 +181,29 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
+.github-link {
+    margin-top: 10px;
+}
+
+.github-link a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.github-link a:hover {
+    color: var(--accent-blue);
+}
+
+.github-link i {
+    font-size: 14px;
+    color: #ffffff;
+}
+
 /* --- Main Content Area --- */
 .main-content {
     flex-grow: 1;
