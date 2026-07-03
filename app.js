@@ -117,6 +117,10 @@ function initTabNavigation() {
                 case "insights":
                     pageTitle.innerText = "Foco y Plan Estratégico";
                     break;
+                case "playbook":
+                    pageTitle.innerText = "Playbook & Herramientas de Venta";
+                    initPlaybookTab();
+                    break;
             }
         });
     });
@@ -974,5 +978,170 @@ function renderSolarTable() {
     renderPagination("pagination-solar-pmgd", solarCurrentPage, totalPages, totalItems, startIndex, endIndex, (newPage) => {
         solarCurrentPage = newPage;
         renderSolarTable();
+    });
+}
+
+// --- Sales Playbook Tab Initialization ---
+const playbookTemplates = {
+    "email-a": `Asunto: Plan de Trabajo ConectaCEN (Plazo 15 Julio) - Plantilla de Cumplimiento PMGD [Nombre de la Empresa]
+
+Estimado/a [Nombre del Contacto],
+
+Espero que se encuentre muy bien.
+
+Le escribo directamente debido a la proximidad del vencimiento del plazo establecido por el Coordinador Eléctrico Nacional (CEN) en su Oficio DE 03474-26. Como es de su conocimiento, todas las empresas coordinadas PMGD deben presentar su Plan de Trabajo en la plataforma ConectaCEN a más tardar este 15 de julio de 2026 para la adecuación y extracción automática de registros oscilográficos (SLRP / COMTRADE).
+
+Sabemos que este requerimiento añade una carga administrativa y operativa importante a su equipo. Por esta razón, desde el departamento de ingeniería de SUPCON Chile, hemos preparado una Plantilla del Plan de Trabajo Técnico que cumple 100% con los estándares de la norma. 
+
+Queremos poner a su disposición este borrador de forma gratuita para que su equipo pueda presentarlo a tiempo en ConectaCEN y evitar observaciones o multas regulatorias.
+
+Adicionalmente, hemos diseñado tres esquemas de solución tecnológica (desde opciones basadas 100% en software hasta gabinetes integrados llave en mano con Master Clock GPS incorporado) que permiten ejecutar este plan optimizando al máximo su presupuesto de inversión (CAPEX).
+
+¿Tendría disponibilidad para una breve videollamada de 10 minutos este [Día de la semana] a las [Hora, ej: 11:00 am] para hacerle llegar la plantilla y revisar cuál alternativa técnica se adapta mejor a sus parques?
+
+Quedo atento a su confirmación para enviarle la invitación.
+
+Atentamente,
+
+[Tu Nombre]
+[Tu Cargo]
+SUPCON Chile
+[Tu Teléfono / Email]`,
+
+    "email-b": `Asunto: Solución al requisito de sincronización UTC (GPS-100) e Integración SITR para [Nombre del Parque/Empresa]
+
+Estimado/a [Nombre del Contacto],
+
+Me dirijo a usted como responsable de la operación del parque [Nombre del Parque PMGD]. 
+
+Como bien sabe, el cumplimiento del Oficio SITR (DE 03450) y la automatización COMTRADE (DE 03474) del CEN imponen un desafío crítico: la estampa de tiempo de las oscilografías y la telemedida deben estar sincronizadas estrictamente con el huso UTC ±00:00 mediante un receptor de GPS Master Clock local físicamente cableado a los relés (protocolos IRIG-B o NTP/PTP). 
+
+La falta de esta sincronización o la caída del canal de datos (que exige un SLA de disponibilidad mensual del 99.5%) es el principal motivo de rechazo por parte de los auditores del Coordinador.
+
+En SUPCON Chile hemos desarrollado el Gabinete GIR-800, una solución integrada de automatización que resuelve estos tres puntos en un solo paso:
+1. Servidor de Tiempo Master Clock GPS-100 integrado de alta precisión.
+2. Extracción autónoma de oscilografías desde relés multimarcas (SEL, ABB, Siemens, etc.) mediante nuestra RTU-8100 y almacenamiento en servidor SFTP local seguro para el SLRP.
+3. Gateway SITR integrado con conectividad celular redundante Dual-SIM para garantizar el 99.5% de disponibilidad.
+
+Esto le evita tener que integrar componentes de múltiples marcas y reduce drásticamente el tiempo de aprobación de la ingeniería ante el CEN y las distribuidoras (como CGE).
+
+¿Le parecería bien que coordinemos una llamada técnica esta semana para revisar las características de sus relés y mostrarle cómo el GIR-800 simplifica esta integración?
+
+Atentamente,
+
+[Tu Nombre]
+SUPCON Chile
+[Contacto]`,
+
+    "email-c": `Asunto: Optimización de Ingresos PMGD y Almacenamiento BESS (Nuevo Decreto 1 de 2026)
+
+Estimado/a [Nombre del Contacto],
+
+Le escribo para conversar sobre las oportunidades de optimización financiera de su portafolio de proyectos PMGD bajo el nuevo escenario regulatorio del Decreto N° 1 de 2026 (modificación al DS 88).
+
+La transición hacia el Precio Básico de Energía (PBE) estructurado en 6 bloques horarios cambia las reglas del juego. Aquellos proyectos solares que inyectan toda su energía durante el bloque "Solar Peak" (12:00 a 16:00 hrs) se enfrentan a precios marginales cercanos a cero y a severos recortes (curtailment) por congestión de redes zonales.
+
+La integración de sistemas de almacenamiento BESS es hoy la vía más rentable para capturar el valor máximo en las horas de demanda punta (20:00 a 00:00 hrs). Sin embargo, esto requiere una tecnología de control de planta avanzada.
+
+Nuestra solución, el Gabinete GIR-800 de SUPCON, no solo resuelve las exigencias obligatorias de telemedida (SITR) y oscilografías (SLRP/COMTRADE) exigidas por el CEN para este año, sino que ya viene equipado de fábrica con:
+*   Controlador de Planta PPC-1000 homologado por el CEN.
+*   Sistema de Gestión de Energía EMS-2000 "BESS-Ready", diseñado para automatizar las curvas de carga/descarga de baterías maximizando los ingresos según las bandas horarias del nuevo decreto.
+
+Nos gustaría presentarle un modelamiento financiero simplificado de cómo la tecnología de control SUPCON puede elevar la tasa interna de retorno (TIR) de sus activos en Chile.
+
+¿Tiene disponibilidad para una reunión de 15 minutos el próximo [Día] a las [Hora]?
+
+Atentamente,
+
+[Tu Nombre]
+[Tu Cargo]
+SUPCON Chile`,
+
+    "cen-letter": `CARTA FORMATO: DECLARACIÓN DE INICIO DE TRABAJOS Y PRESENTACIÓN DE PLAN DE CUMPLIMIENTO
+(El cliente debe copiar esto en hoja con membrete de su empresa y subirlo en PDF al portal ConectaCEN)
+
+Santiago, [Día] de [Mes] de 2026
+
+Señores
+Coordinador Eléctrico Nacional (CEN)
+Unidad de Monitoreo de Protecciones y Sistemas de Información
+PRESENTE
+
+Referencia: Presentación de Plan de Trabajo para Adecuación y Extracción de Registros Oscilográficos (Oficio Circular DE 03474-26) y/o Telemedida SITR (Oficio DE 03450-26).
+Instalación: PMGD [Nombre del Parque / Proyecto]
+Empresa Coordinada: [Nombre del Propietario / SpA]
+
+De nuestra consideración:
+
+Por medio de la presente, y en representación de la empresa coordinada [Nombre del Propietario / SpA], titular del proyecto de generación distribuida "PMGD [Nombre del Parque / Proyecto]", ubicado en la comuna de [Comuna], Región de [Región], venimos en dar cumplimiento a lo instruido en el Oficio Circular de la referencia.
+
+Declaramos bajo juramento que hemos iniciado las gestiones técnicas para la adecuación de nuestra instalación a las exigencias normativas relativas a:
+
+1.  La estandarización de nuestros registros de fallas según el estándar IEEE C37.111-2013 (COMTRADE), incluyendo la correcta nomenclatura de canales analógicos y binarios de acuerdo con las directivas del Coordinador.
+2.  La habilitación del sistema de sincronización horaria local mediante receptor GPS con estampa de tiempo UTC ±00:00.
+3.  La implementación del sistema de extracción automática de oscilografías hacia un repositorio centralizado seguro (servidor SFTP externo al relé) para consulta remota por el sistema SLRP del Coordinador.
+
+Para la ejecución de estas tareas de ingeniería, integración de hardware y automatización de comunicaciones, nuestra empresa ha seleccionado a la firma tecnológica SUPCON Chile como nuestro partner tecnológico e integrador principal del proyecto.
+
+Adjunto a esta comunicación, presentamos en la plataforma ConectaCEN el cronograma detallado de hitos y actividades (Plan de Trabajo Técnico), estimando cumplir con las pruebas de validación local y pruebas punto a punto con el Coordinador dentro de los plazos establecidos en el régimen transitorio de la instrucción.
+
+Sin otro particular, saluda atentamente a ustedes,
+
+__________________________________________
+[Nombre del Representante Legal o Gerente]
+[RUT del Firmante]
+[Cargo]
+[Nombre de la Empresa Propietaria / SpA]
+[Email de Contacto]
+[Teléfono de Contacto]`
+};
+
+let activeEmailTab = "email-a";
+
+function initPlaybookTab() {
+    // Populate templates initially
+    const emailBox = document.getElementById("email-template-content");
+    const letterBox = document.getElementById("cen-letter-content");
+    if (emailBox) emailBox.innerText = playbookTemplates[activeEmailTab];
+    if (letterBox) letterBox.innerText = playbookTemplates["cen-letter"];
+
+    // Email Template Switchers
+    const emailTabs = document.querySelectorAll(".playbook-tab-btn");
+    emailTabs.forEach(btn => {
+        btn.addEventListener("click", () => {
+            emailTabs.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            activeEmailTab = btn.getAttribute("data-email");
+            const box = document.getElementById("email-template-content");
+            if (box) box.innerText = playbookTemplates[activeEmailTab];
+        });
+    });
+
+    // Copy Buttons Event Listeners
+    setupCopyButton("btn-copy-email", "email-template-content", '<i class="fa-solid fa-copy"></i> Copiar Correo');
+    setupCopyButton("btn-copy-letter", "cen-letter-content", '<i class="fa-solid fa-copy"></i> Copiar Carta Borrador');
+}
+
+function setupCopyButton(btnId, targetId, originalHtml) {
+    const btn = document.getElementById(btnId);
+    if (!btn) return;
+    
+    // Remove existing event listener to avoid duplicate setups
+    const newBtn = btn.cloneNode(true);
+    btn.parentNode.replaceChild(newBtn, btn);
+    
+    newBtn.addEventListener("click", async () => {
+        const textToCopy = document.getElementById(targetId).innerText;
+        try {
+            await navigator.clipboard.writeText(textToCopy);
+            newBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i> ¡Copiado!';
+            newBtn.classList.add("copied");
+            setTimeout(() => {
+                newBtn.innerHTML = originalHtml;
+                newBtn.classList.remove("copied");
+            }, 2000);
+        } catch (err) {
+            console.error("No se pudo copiar el texto: ", err);
+        }
     });
 }

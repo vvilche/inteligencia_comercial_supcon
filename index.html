@@ -50,6 +50,9 @@
                 <button class="nav-btn" data-tab="insights">
                     <i class="fa-solid fa-lightbulb"></i> Focos Estratégicos
                 </button>
+                <button class="nav-btn" data-tab="playbook">
+                    <i class="fa-solid fa-toolbox"></i> Herramientas de Venta
+                </button>
             </nav>
             <div class="sidebar-footer">
                 <p>Comercial Intelligence v1.2</p>
@@ -498,8 +501,129 @@
                     </div>
                 </div>
             </section>
+
+            <!-- Tab: Playbook / Herramientas de Venta -->
+            <section class="tab-section" id="tab-playbook">
+                <div class="playbook-grid">
+                    <!-- Column Left: Guías y Matriz -->
+                    <div>
+                        <!-- Card 1: Explicación Regulatoria -->
+                        <div class="card glass playbook-section-card" style="padding: 24px;">
+                            <div class="card-header" style="margin-bottom: 16px;">
+                                <h2><i class="fa-solid fa-book-open text-blue"></i> Guía Regulatoria Rápida (Para Vendedores)</h2>
+                                <p class="subtitle">Los argumentos comerciales clave explicados en palabras sencillas</p>
+                            </div>
+                            <div class="clusters-list" style="margin-top: 16px;">
+                                <div class="cluster-item" style="padding: 12px; margin-bottom: 12px;">
+                                    <div class="cluster-badge center" style="background-color: var(--accent-blue-glow); color: var(--accent-blue); padding: 4px 8px; border-radius: 4px; font-weight: bold; width: fit-content;">Telemedida SITR</div>
+                                    <div class="cluster-body" style="margin-top: 8px;">
+                                        <h3 style="font-size: 14px; margin-bottom: 4px; font-weight: 600;">Envío de datos en tiempo real al SCADA del CEN</h3>
+                                        <p class="cluster-text" style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5;">El Coordinador exige que las plantas envíen su generación y clima cada pocos segundos. **Afecta a 87 plantas (Tier 1) de inmediato** con plazos de 30 días hábiles y multas/desconexiones si el canal cae (SLA exige >=99.5% de disponibilidad).</p>
+                                    </div>
+                                </div>
+                                <div class="cluster-item" style="padding: 12px; margin-bottom: 12px;">
+                                    <div class="cluster-badge north" style="background-color: var(--accent-purple-glow); color: var(--accent-purple); padding: 4px 8px; border-radius: 4px; font-weight: bold; width: fit-content;">SLRP / COMTRADE</div>
+                                    <div class="cluster-body" style="margin-top: 8px;">
+                                        <h3 style="font-size: 14px; margin-bottom: 4px; font-weight: 600;">Extracción automática de registros oscilográficos de falla</h3>
+                                        <p class="cluster-text" style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5;">La "caja negra" de la subestación. Cada vez que haya una falla, el sistema debe guardar el archivo en un servidor SFTP local seguro de forma automática para consulta remota del CEN. **Hito Plan de Trabajo: 15 de julio de 2026 en ConectaCEN.**</p>
+                                    </div>
+                                </div>
+                                <div class="cluster-item" style="padding: 12px; margin-bottom: 12px;">
+                                    <div class="cluster-badge south" style="background-color: var(--accent-orange-glow); color: var(--accent-orange); padding: 4px 8px; border-radius: 4px; font-weight: bold; width: fit-content;">Decreto 1/2026 (DS 88)</div>
+                                    <div class="cluster-body" style="margin-top: 8px;">
+                                        <h3 style="font-size: 14px; margin-bottom: 4px; font-weight: 600;">Precio estabilizado dividido en 6 bloques horarios</h3>
+                                        <p class="cluster-text" style="font-size: 12px; color: var(--color-text-secondary); line-height: 1.5;">Fomenta la instalación de almacenamiento BESS (baterías) para inyectar en horas punta (noche) donde el precio de venta es máximo, evitando inyectar en las horas de sol donde el precio marginal es casi cero.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2: Matriz Comparativa -->
+                        <div class="card glass" style="padding: 24px;">
+                            <div class="card-header" style="margin-bottom: 16px;">
+                                <h2><i class="fa-solid fa-layer-group text-purple"></i> Matriz de Alternativas Tecnológicas</h2>
+                                <p class="subtitle">Tres caminos comerciales para proponer según presupuesto y estado del parque</p>
+                            </div>
+                            <div class="table-wrapper" style="margin-top: 16px;">
+                                <table style="width: 100%; border-collapse: collapse; font-size: 12px;">
+                                    <thead>
+                                        <tr style="border-bottom: 1px solid var(--border-glass);">
+                                            <th style="padding: 10px; text-align: left;">Característica</th>
+                                            <th style="padding: 10px; text-align: left;">Software-Only</th>
+                                            <th style="padding: 10px; text-align: left;">NovaTech Orion</th>
+                                            <th style="padding: 10px; text-align: left;">SUPCON GIR-800</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                                            <td style="padding: 10px; font-weight: 500;">CAPEX</td>
+                                            <td style="padding: 10px; color: var(--accent-green); font-weight: 500;">Muy Bajo</td>
+                                            <td style="padding: 10px; color: var(--accent-orange);">Medio</td>
+                                            <td style="padding: 10px; color: var(--accent-purple);">Medio-Alto</td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                                            <td style="padding: 10px; font-weight: 500;">GPS UTC</td>
+                                            <td style="padding: 10px;">Requiere externo</td>
+                                            <td style="padding: 10px;">Requiere externo</td>
+                                            <td style="padding: 10px; color: var(--accent-green); font-weight: 500;">Integrado (GPS-100)</td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                                            <td style="padding: 10px; font-weight: 500;">SLA SITR</td>
+                                            <td style="padding: 10px; color: var(--color-text-muted);">Depende de IPC local</td>
+                                            <td style="padding: 10px; color: var(--accent-blue);">Alto (Linux RTU)</td>
+                                            <td style="padding: 10px; color: var(--accent-green); font-weight: 500;">Muy Alto (Doble SIM)</td>
+                                        </tr>
+                                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.03);">
+                                            <td style="padding: 10px; font-weight: 500;">BESS / EMS</td>
+                                            <td style="padding: 10px; color: var(--color-text-muted);">No disponible</td>
+                                            <td style="padding: 10px; color: var(--color-text-muted);">No disponible</td>
+                                            <td style="padding: 10px; color: var(--accent-green); font-weight: 500;">Listo (EMS-2000)</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column Right: Plantillas de Correo y Carta -->
+                    <div>
+                        <!-- Card 3: Plantillas de Correo -->
+                        <div class="card glass playbook-section-card" style="padding: 24px;">
+                            <div class="card-header" style="margin-bottom: 16px;">
+                                <h2><i class="fa-solid fa-envelope text-orange"></i> Plantillas de Correo (Outbound)</h2>
+                                <p class="subtitle">Selecciona, personaliza y copia correos redactados según tu objetivo</p>
+                            </div>
+                            <div class="playbook-tab-nav" style="margin-top: 16px;">
+                                <button class="playbook-tab-btn active" data-email="email-a">Urgencia Hito 15-Jul</button>
+                                <button class="playbook-tab-btn" data-email="email-b">Enfoque Técnico GPS</button>
+                                <button class="playbook-tab-btn" data-email="email-c">BESS y Decreto 1</button>
+                            </div>
+                            <div class="template-box" id="email-template-content">
+                                <!-- Loaded dynamically via JS -->
+                            </div>
+                            <button class="copy-btn" id="btn-copy-email">
+                                <i class="fa-solid fa-copy"></i> Copiar Correo
+                            </button>
+                        </div>
+
+                        <!-- Card 4: Carta Formato CEN -->
+                        <div class="card glass" style="padding: 24px;">
+                            <div class="card-header" style="margin-bottom: 16px;">
+                                <h2><i class="fa-solid fa-file-contract text-green"></i> Carta Lead Magnet para el CEN</h2>
+                                <p class="subtitle">Carta borrador de cumplimiento para que el cliente suba a ConectaCEN</p>
+                            </div>
+                            <div class="template-box" id="cen-letter-content" style="max-height: 250px;">
+                                <!-- Loaded dynamically via JS -->
+                            </div>
+                            <button class="copy-btn" id="btn-copy-letter">
+                                <i class="fa-solid fa-copy"></i> Copiar Carta Borrador
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
-    </div>
+        </div>
 
     <!-- Custom JS -->
     <script src="app.js"></script>

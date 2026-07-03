@@ -813,3 +813,104 @@ tbody tr:hover {
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.2);
 }
+
+/* --- Sales Playbook Tab Styles --- */
+.playbook-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 24px;
+    margin-top: 24px;
+}
+
+@media (max-width: 1024px) {
+    .playbook-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.copy-btn {
+    background-color: var(--accent-blue-glow);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: var(--border-radius-sm);
+    color: var(--accent-blue);
+    padding: 8px 16px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition-smooth);
+}
+
+.copy-btn:hover {
+    background-color: var(--accent-blue);
+    color: white;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 12px rgba(14, 165, 233, 0.4);
+}
+
+.copy-btn.copied {
+    background-color: var(--accent-green-glow);
+    color: var(--accent-green);
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.playbook-section-card {
+    margin-bottom: 24px;
+}
+
+.playbook-section-card h3 {
+    margin-bottom: 12px;
+    font-family: var(--font-heading);
+    font-size: 16px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.playbook-tab-nav {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.playbook-tab-btn {
+    background: transparent;
+    border: 1px solid var(--border-glass);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-text-secondary);
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.playbook-tab-btn:hover {
+    color: #ffffff;
+    border-color: var(--accent-blue);
+}
+
+.playbook-tab-btn.active {
+    background-color: var(--accent-blue-glow);
+    color: var(--accent-blue);
+    border-color: var(--accent-blue);
+}
+
+.template-box {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--border-radius-md);
+    padding: 16px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    max-height: 350px;
+    overflow-y: auto;
+    margin-bottom: 12px;
+    white-space: pre-wrap;
+    text-align: left;
+}
