@@ -12,6 +12,12 @@
     --accent-blue: #0ea5e9;
     --accent-blue-glow: rgba(14, 165, 233, 0.15);
     
+    --accent-brand: #6366f1; /* Conecta Indigo */
+    --accent-brand-glow: rgba(99, 102, 241, 0.15);
+    
+    --accent-teal: #14b8a6; /* Normativo Teal */
+    --accent-teal-glow: rgba(20, 184, 166, 0.15);
+    
     --accent-green: #10b981;
     --accent-green-glow: rgba(16, 185, 129, 0.15);
     
@@ -65,7 +71,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 600px;
     height: 600px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, rgba(168, 85, 247, 0.05) 50%, transparent 100%);
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(20, 184, 166, 0.05) 50%, transparent 100%);
     z-index: -1;
     filter: blur(80px);
     pointer-events: none;
@@ -99,13 +105,13 @@ h1, h2, h3, h4, h5, h6 {
     width: 36px;
     height: 36px;
     border-radius: var(--border-radius-md);
-    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-purple) 100%);
+    background: linear-gradient(135deg, var(--accent-brand) 0%, var(--accent-teal) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 18px;
     color: white;
-    box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .logo-text {
@@ -116,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-text span {
-    color: var(--accent-blue);
+    color: var(--accent-teal);
     font-weight: 400;
     font-size: 16px;
     margin-left: 2px;

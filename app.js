@@ -97,7 +97,7 @@ function initTabNavigation() {
                     pageTitle.innerText = "Panel de Inteligencia Comercial";
                     break;
                 case "rankings":
-                    pageTitle.innerText = "Ranking de Oportunidades SUPCON";
+                    pageTitle.innerText = "Ranking de Prioridad Regulatoria";
                     break;
                 case "substations":
                     pageTitle.innerText = "Catastro de Subestaciones (CEN)";

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SUPCON Commercial Intelligence Dashboard - Chile Electromobility, Grid Modernization, and SCADA Database">
-    <title>SUPCON Chile - Inteligencia Comercial de Redes Eléctricas</title>
+    <meta name="description" content="Conecta Normativo - Plataforma de Inteligencia Comercial y Cumplimiento Regulatorio de Redes Eléctricas en Chile">
+    <title>Conecta Normativo - Inteligencia Comercial y Cumplimiento de Redes Eléctricas</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,8 +22,8 @@
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-logo">
-                <div class="logo-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
-                <div class="logo-text">SUPCON<span>Chile</span></div>
+                <div class="logo-icon"><i class="fa-solid fa-network-wired"></i></div>
+                <div class="logo-text">Conecta<span>Normativo</span></div>
             </div>
             <nav class="sidebar-nav">
                 <button class="nav-btn active" data-tab="overview">
@@ -152,8 +152,8 @@
                 <div class="dashboard-footer-info glass">
                     <div class="info-icon"><i class="fa-solid fa-circle-info text-blue"></i></div>
                     <div class="info-body">
-                        <h3>Fórmula de Puntuación Comercial de SUPCON (Priority Score)</h3>
-                        <p>Calculado automáticamente evaluando: Central Térmica (Peso 5: DCS/SIS), Central Hidroeléctrica (Peso 3: DCS Hidro), Central ERNC (Peso 2: PPC/BESS EMS), Subestación Sin SCADA (Peso 1: SAS/RTU) y Segmento Industrial / Minero (Bono +10: integración de sistemas de potencia y procesos).</p>
+                        <h3>Fórmula del Score de Prioridad Regulatoria (Priority Score)</h3>
+                        <p>Calculado automáticamente evaluando la criticidad de la planta en el SEN: Central Térmica (Peso 5: modernización DCS/SIS), Central Hidroeléctrica (Peso 3: control DCS), Central ERNC (Peso 2: requerimiento PPC/BESS EMS), Subestación Sin SCADA (Peso 1: SAS/RTU) y Segmento Industrial / Minero (Bono +10: integración de sistemas de potencia y procesos de alta potencia).</p>
                     </div>
                 </div>
             </section>
@@ -164,7 +164,7 @@
                     <div class="card-header-flex">
                         <div>
                             <h2>Priorización Comercial de Clientes</h2>
-                            <p class="subtitle">Empresas ordenadas por su potencial comercial total para el portafolio de SUPCON</p>
+                            <p class="subtitle">Empresas ordenadas por su nivel de requerimientos y prioridad de conexión en la red eléctrica chilena</p>
                         </div>
                         <div class="table-actions">
                             <input type="text" id="rankings-search" class="table-search" placeholder="Filtrar por empresa...">
@@ -291,7 +291,7 @@
                     <div class="card-header-flex">
                         <div>
                             <h2>Catastro de Plantas Industriales en Chile</h2>
-                            <p class="subtitle">Explora las plantas manufactureras clave y su idoneidad para soluciones DCS/SIS de SUPCON</p>
+                            <p class="subtitle">Explora las plantas manufactureras clave y sus oportunidades de integración y control de procesos</p>
                         </div>
                         <div class="table-filters-grid">
                             <input type="text" id="ind-search" class="table-search" placeholder="Buscar por nombre, empresa o comuna...">
@@ -316,7 +316,7 @@
                                     <th>Sector Industrial</th>
                                     <th>Región</th>
                                     <th>Comuna</th>
-                                    <th>Oportunidad SUPCON</th>
+                                    <th>Línea de Interés</th>
                                     <th>Conexión Eléctrica</th>
                                 </tr>
                             </thead>
@@ -479,8 +479,8 @@
                 <!-- Commercial Entry Strategies Card -->
                 <div class="card glass mt-6">
                     <div class="card-header">
-                        <h2><i class="fa-solid fa-chess-knight text-purple"></i> Estrategias de Entrada Comercial (Go-To-Market SUPCON)</h2>
-                        <p class="subtitle">Propuestas de valor diferenciadas para el mercado energético chileno</p>
+                        <h2><i class="fa-solid fa-chess-knight text-purple"></i> Modelos de Integración y Cumplimiento Normativo (Go-To-Market)</h2>
+                        <p class="subtitle">Modelos de optimización y arquitecturas recomendadas para el mercado energético chileno</p>
                     </div>
                     <div class="strategies-grid">
                         <div class="strategy-card">
@@ -491,12 +491,12 @@
                         <div class="strategy-card">
                             <div class="strategy-number">02</div>
                             <h3>Integración DCS + SAS Minero</h3>
-                            <p>Aprovechar la fortaleza de SUPCON en DCS químico/industrial y proponer a **BHP Escondida** y **Codelco** una solución unificada. Al integrar las subestaciones de patio con el DCS de procesos de la concentradora, se reduce drásticamente el OPEX de repuestos y capacitación de operadores.</p>
+                            <p>Aprovechar la integración unificada de DCS de procesos y sistemas de automatización de subestaciones (SAS) para grandes mineras como **BHP Escondida** y **Codelco**. Al integrar las subestaciones de patio con el control de procesos, se reduce drásticamente el OPEX y simplifica la operación.</p>
                         </div>
                         <div class="strategy-card">
                             <div class="strategy-number">03</div>
                             <h3>Retrofit DCS/SIS de Carboneras</h3>
-                            <p>Ofrecer kits de modernización para el apagado de plantas de carbón de **AES Chile** y **Engie**. Las plantas que se retiran del carbón requieren reconvertirse a condensadores síncronos o almacenamiento BESS, requiriendo reconfigurar los sistemas de control de turbina y protecciones críticas (SIS).</p>
+                            <p>Ofrecer kits de modernización para el apagado y reconversión de plantas termoeléctricas de carbón de **AES Chile** y **Engie**. Las plantas que se retiran del carbón requieren reconvertirse a condensadores síncronos o almacenamiento BESS, requiriendo reconfigurar los sistemas de control de turbina y protecciones críticas (SIS).</p>
                         </div>
                     </div>
                 </div>
